@@ -6,13 +6,18 @@ import Main from './Main';
 import Fieldset from './Fieldset';
 import Section from './Section';
 import Buttons from './Buttons';
-import { calculateReasult } from './Main';
 
 
 function App() {
 
    const calculateReasult = ({ optionInput, optionResult, input, exchangeResult, result }) => {
+      let inputElement = document.querySelector("inputElement");
+      let optionInputElement = document.querySelector("optionInputElement");
+      let optionResultElement = document.querySelector("optionResultElement");
 
+      input = inputElement.value;
+      optionInput = optionInputElement.value;
+      optionResult = optionResultElement.value;
       switch (true) {
          case (optionInput === "EUR" && optionResult === "EUR"):
             exchangeResult = input * 1;
