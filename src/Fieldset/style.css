@@ -1,0 +1,5 @@
+.form__fildest {
+    border: hsl(0, 1%, 67%) 10px solid;
+    background-color: hsla(0, 5%, 80%, 0.979);
+    border-radius: 38px;
+}
