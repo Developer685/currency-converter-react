@@ -1,13 +1,13 @@
 import "./style.css";
 
-const Main = ({ input, optionInput, optionResult }) => {
-   
+const Main = ({ input, inputResult }) => (
+
     <main className="main">
         <section>
             Wyliczenia kantora opierają się na kursie walut z dnia 01.08.2023<br />
             <label>
                 Wpisz kwotę:
-                <input className="inputElement" required autofocus
+                <input className="inputElement" value={input} onChange={(input) => inputResult(input)} required autofocus
                     placeholder="(tylko liczby)" name="Wpisz kwotę" />
             </label>
             Wybierz walutę:
@@ -28,6 +28,6 @@ const Main = ({ input, optionInput, optionResult }) => {
             </select>
         </section>
     </main>
-};
+);
 
 export default Main;
