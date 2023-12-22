@@ -1,6 +1,6 @@
 import './App.css';
 import './Header';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Fieldset from './Fieldset';
@@ -9,80 +9,40 @@ import Buttons from './Buttons';
 
 
 function App() {
+   const [result, setResult] = useState(1);
+   const [input, setInput] = useState("");
 
-   const calculateReasult = ({ optionInput, optionResult, input, exchangeResult, result }) => {
-      let inputElement = document.querySelector("inputElement");
-      let optionInputElement = document.querySelector("optionInputElement");
-      let optionResultElement = document.querySelector("optionResultElement");
+   const calculateReasult = (input) => {
+      setResult(result => result = input * 4.43);
+      console.log("przycisk dziala");
+   };
 
-      input = inputElement.value;
-      optionInput = optionInputElement.value;
-      optionResult = optionResultElement.value;
-      switch (true) {
-         case (optionInput === "EUR" && optionResult === "EUR"):
-            exchangeResult = input * 1;
-            result.innerText = exchangeResult;
-            break;
+   const inputResult = (input) => {
+      setInput(input.target.value);
+   };
 
-         case (optionInput === "EUR" && optionResult === "USD"):
-            exchangeResult = input * 1.1;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "EUR" && optionResult === "PLN"):
-            exchangeResult = input * 4.43;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "USD" && optionResult === "USD"):
-            exchangeResult = input * 1;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "USD" && optionResult === "EUR"):
-            exchangeResult = input * 0.91;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "USD" && optionResult === "PLN"):
-            exchangeResult = input * 4.04;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "PLN" && optionResult === "PLN"):
-            exchangeResult = input * 1;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "PLN" && optionResult === "USD"):
-            exchangeResult = input * 0.25;
-            result.innerText = exchangeResult;
-            break;
-
-         case (optionInput === "PLN" && optionResult === "EUR"):
-            exchangeResult = input * 0.23;
-            result.innerText = exchangeResult;
-            break;
-         default:
-            console.log("brak wybranej waluty");
-      }
-   }
+   const onFormSubmit = (event) => {
+      event.preventDefault();
+   };
 
    return (
       <div>
-         <form className="form">
+         <form className="form" onSubmit={onFormSubmit}>
             <Fieldset>
                <legend className="form__legend">
-                  <Header>Kantor</Header>
+                  <Header />
                </legend>
-               <Main calculateReasult={calculateReasult} />
+               <Main inputResult={inputResult} />
             </Fieldset>
             <Section
-               body={<Buttons button1="Przelicz" button2="Wyczyść formularz" calculateReasult={calculateReasult} />}
+               body={<Buttons button1="Przelicz" button2="Wyczyść formularz" calculateResult={calculateReasult} />}
 
-               result={<span className="form__span">Kwota po przeliczeniu:<strong className="result">0</strong></span>}
+               result={<span className="form__span">Kwota po przeliczeniu: {result} <strong className="result"></strong></span>}
             />
 
+            <p>Kwota po przeliczeniu: {result}</p>
+            <input value={input} onChange={(event) => setInput(event.target.value)} />
+            <button onClick={() => calculateReasult(input)}>Przelicz</button>
          </form>
       </div >
    );
