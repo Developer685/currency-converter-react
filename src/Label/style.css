@@ -1,0 +1,8 @@
+.inputElement {
+    background-color: white;
+    border: black 2px solid;
+    border-radius: 3px;
+    padding: 8px;
+    width: 100%;
+    max-width: 200px;
+}
