@@ -15,3 +15,14 @@
     background-color: hsl(133, 62%, 45%);
     border: none;
 }
+.form {
+    text-align: center;
+    padding: 5%;
+
+}
+.form__span {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+    max-width: 300px;
+    padding: 8px;
+}

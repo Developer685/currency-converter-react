@@ -1,10 +1,10 @@
-.selecttElement {
+.selectElement {
     background-color: hsl(133, 62%, 45%);
     border: black 2px solid;
     border-radius: 3px;
     padding: 8px;
 }
 
-.selecttElement:hover {
+.selectElement:hover {
     background-color: hsl(133, 62%, 38%);
 }

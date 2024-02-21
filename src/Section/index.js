@@ -1,11 +1,11 @@
 
 import "./style.css";
 
-const Section = ({ body, result}) => (
+const Section = ({ body, equalitionResult}) => (
     <section>
         <div>
             {body}
-            {result}
+            {equalitionResult}
         </div>
     </section>
 );

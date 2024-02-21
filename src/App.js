@@ -15,58 +15,55 @@ function App() {
       {
          code: "PLN",
          name: "Polski złoty",
-         value: 1
+         rate: 1
       },
       {
          code: "EUR",
          name: "Euro",
-         value: 4.34
+         rate: 4.34
       },
       {
          code: "USD",
          name: "Dolar amerykański",
-         value: 3.98
+         rate: 3.98
       },
       {
          code: "GBP",
          name: "Funt brytyjski",
-         value: 5.04
+         rate: 5.04
       },
       {
          code: "CHF",
          name: "Frank szwajcarski",
-         value: 4.67
+         rate: 4.67
       },
    ];
 
-   //waluty mozna uzaleznic od wartosci np zlotowki i nastepnie wyznaczac wartosci poprzez dzielenie ich
+   const [result, setResult] = useState("");
+   const [amount, setAmount] = useState("");
+   const [selectedNational, setSelectedNational] = useState(currencies[0].code);
+   const [selectedForeign, setSelectedForeign] = useState(currencies[0].code);
 
-   const [result, setResult] = useState(1);
-   const [input, setInput] = useState("");
-   const [chosenCurrency, setChosenCurrency] = useState();
+   const handleNationalSelect = (currency) => {
+      const selectedNational = currencies.find(({ code }) => code === currency)?.rate; //for some reason doesn`t work without "?"
+      setSelectedNational(selectedNational);
+   };
 
-   const calculateResult = (input) => {
-      setResult(result => input * 4.43);
-      console.log("przycisk dziala");
+   const handleForeignSelect = (currency) => {
+      const selectedForeign = currencies.find(({ code }) => code === currency)?.rate;
+      setSelectedForeign(selectedForeign);
+   };
+
+   const calculateResult = (amount, selectedNational, selectedForeign) => {
+
+      setResult((amount * selectedNational) / selectedForeign);
       console.log({ result });
    };
 
    const onFormSubmit = (event) => {
       event.preventDefault();
+      calculateResult(amount, selectedNational, selectedForeign);
    };
-
-   const currencySelect = (event) => {
-      const choice = chosenCurrency.find(currency => currency.code === event.target.value);
-      setChosenCurrency(choice);
-      console.log("Twoja waluta to: ", { choice });
-   }
-   /*
-   const options = [
-    { label: "EUR", value: 4.34 },
-    { label: "PLN", value: 4.34 },
-    { label: "USD", value: 3.98 }
-   ]
-   */
 
    return (
       <div>
@@ -78,20 +75,19 @@ function App() {
                Wyliczenia kantora opierają się na kursie walut z dnia 01.08.2023
                <main className="main">
                   <section>
-                     <Label input={input} setInput={setInput} />
+                     <Label className="form__amount" amount={amount} setAmount={setAmount} />
 
-                     <Select value={chosenCurrency} setChosenCurrency={setChosenCurrency} />
+                     <Select setCurrency={handleNationalSelect} />
                      <br />Wybierz walutę na którą chcesz przewalutować:
-                     <Select value={chosenCurrency} setChosenCurrency={setChosenCurrency} />
+                     <Select setCurrency={handleForeignSelect} />
                   </section>
                </main>
             </Fieldset>
             <Section
-               body={<Buttons input={input} calculateResult={calculateResult} />}
+               body={<Buttons amount={amount} setAmount={setAmount} calculateResult={calculateResult} />}
 
-               result={<span className="form__span">Kwota po przeliczeniu: {result} <strong className="result"></strong></span>}
+               equalitionResult={<span className="form__span">Kwota po przeliczeniu: {result} <strong className="result"></strong></span>}
             />
-
          </form>
       </div >
    );

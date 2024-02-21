@@ -1,7 +1,7 @@
 import "./style.css";
 
 const Header = () => (
-    <h1 className="header">Kantor</h1>
+    <h1>Kantor</h1>
 );
 
 

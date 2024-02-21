@@ -1,0 +1,17 @@
+.form__button {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 2%;
+}
+
+.form__button:hover {
+    background-color: hsl(133, 62%, 38%);
+
+}
+
+.form__button:focus {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+}

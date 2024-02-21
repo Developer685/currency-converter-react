@@ -1,9 +1,9 @@
 import "./style.css";
 
-const Buttons = ({ input, calculateResult }) => (
+const Buttons = ({ amount, calculateResult, setAmount }) => (
     <div>
-        <button onClick={() => calculateResult(input)} className="form__button">przelicz</button>
-        <button className="form__button" type="reset">Wyczyść</button>
+        <button onClick={() => calculateResult(amount)} className="form__button">Przelicz</button>
+        <button className="form__button" onClick={() => setAmount("")}>Wyczyść</button>
     </div>
 
 );
