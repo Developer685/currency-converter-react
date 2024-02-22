@@ -41,8 +41,8 @@ function App() {
 
    const [result, setResult] = useState("");
    const [amount, setAmount] = useState("");
-   const [selectedNational, setSelectedNational] = useState(currencies[0].code);
-   const [selectedForeign, setSelectedForeign] = useState(currencies[0].code);
+   const [selectedNational, setSelectedNational] = useState(currencies[0].rate);
+   const [selectedForeign, setSelectedForeign] = useState(currencies[0].rate);
 
    const handleNationalSelect = (currency) => {
       const selectedNational = currencies.find(({ code }) => code === currency)?.rate; //for some reason doesn`t work without "?"
