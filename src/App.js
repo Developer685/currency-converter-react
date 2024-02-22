@@ -56,7 +56,7 @@ function App() {
 
    const calculateResult = (amount, selectedNational, selectedForeign) => {
 
-      setResult((amount * selectedNational) / selectedForeign);
+      setResult(amount * (selectedNational / selectedForeign));
       console.log({ result });
    };
 
