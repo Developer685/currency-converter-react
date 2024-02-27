@@ -3,6 +3,8 @@
     border: black 2px solid;
     border-radius: 3px;
     padding: 8px;
+    font-size: large;
+    margin: 0% 1%;
 }
 
 .selectElement:hover {

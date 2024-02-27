@@ -1,0 +1,60 @@
+.form {
+    text-align: center;
+    padding: 5%;
+
+}
+
+.form__span {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+    max-width: 300px;
+    padding: 8px;
+}
+
+.form__legend {
+    margin: auto;
+    text-align: center;
+    background-color: hsl(133, 62%, 45%);
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: large;
+    width: 100%;
+    max-width: 200px;
+}
+
+.form__fildset {
+    border: hsl(0, 1%, 67%) 10px solid;
+    background-color: hsla(0, 5%, 80%, 0.979);
+    border-radius: 38px;
+}
+
+.form__button {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+    border-radius: 3px;
+    padding: 8px;
+    margin: 1%;
+    font-size: x-large;
+}
+
+.form__button:hover {
+    background-color: hsl(133, 62%, 38%);
+
+}
+
+.form__button:focus {
+    background-color: hsl(133, 62%, 45%);
+    border: none;
+}
+
+.inputElement {
+    background-color: white;
+    border: black 2px solid;
+    border-radius: 3px;
+    padding: 4px 10px;
+    padding: center;
+    width: 100%;
+    max-width: 15%;
+    font-size: x-large;
+    margin: 1%;
+}

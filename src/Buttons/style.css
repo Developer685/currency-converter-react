@@ -3,7 +3,8 @@
     border: none;
     border-radius: 3px;
     padding: 8px;
-    margin-bottom: 2%;
+    margin: 1%;
+    font-size: x-large;
 }
 
 .form__button:hover {

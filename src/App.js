@@ -1,13 +1,7 @@
 import './App.css';
-import './Header';
 import React, { useState } from 'react';
-import Header from './Header';
-import Fieldset from './Fieldset';
-import Section from './Section';
-import Label from './Label';
-import Select from './Select';
-import Buttons from './Buttons';
-
+import Form from './Form';
+import { Helmet } from 'react-helmet';
 
 function App() {
 
@@ -67,29 +61,19 @@ function App() {
 
    return (
       <div>
-         <form className="form" onSubmit={onFormSubmit}>
-            <Fieldset>
-               <legend className="form__legend">
-                  <Header />
-               </legend>
-               Wyliczenia kantora opierają się na kursie walut z dnia 01.08.2023
-               <main className="main">
-                  <section>
-                     <Label className="form__amount" amount={amount} setAmount={setAmount} />
-
-                     <Select setCurrency={handleNationalSelect} />
-                     <br />Wybierz walutę na którą chcesz przewalutować:
-                     <Select setCurrency={handleForeignSelect} />
-                  </section>
-               </main>
-            </Fieldset>
-            <Section
-               body={<Buttons amount={amount} setAmount={setAmount} calculateResult={calculateResult} />}
-
-               equalitionResult={<span className="form__span">Kwota po przeliczeniu: {result} <strong className="result"></strong></span>}
-            />
-         </form>
+         <Helmet>
+            <meta property="og:image" content="share.png" />
+         </Helmet>
+         <Form onFormSubmit={onFormSubmit}
+            amount={amount}
+            setAmount={setAmount}
+            handleNationalSelect={handleNationalSelect}
+            handleForeignSelect={handleForeignSelect}
+            calculateResult={calculateResult}
+            result={result}
+         />
       </div >
+
    );
 }
 
