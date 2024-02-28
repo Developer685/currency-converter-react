@@ -1,7 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
 import Form from './Form';
-import { Helmet } from 'react-helmet';
 
 function App() {
 
@@ -61,9 +60,6 @@ function App() {
 
    return (
       <div>
-         <Helmet>
-            <meta property="og:image" content="share.png" />
-         </Helmet>
          <Form onFormSubmit={onFormSubmit}
             amount={amount}
             setAmount={setAmount}
