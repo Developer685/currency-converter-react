@@ -17,4 +17,5 @@ This app serves for converting currencies. You may choose between U.S dollar, eu
 - CSS
 - JavaScript
 - React
+- useEffect
 - BEM convetion

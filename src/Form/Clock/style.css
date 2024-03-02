@@ -1,0 +1,6 @@
+.clock {
+    display: flex;
+    justify-content: right;
+    font-size: large;
+    font-family: monospace;
+}

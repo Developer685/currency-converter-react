@@ -1,16 +1,15 @@
 import "./style.css"
 import Select from './Select';
 import Result from './Result';
-
-
+import Clock from "./Clock";
 
 const Form = ({ onFormSubmit, amount, setAmount, handleNationalSelect, handleForeignSelect, calculateResult, result }) => (
     <form className="form" onSubmit={onFormSubmit}>
         <fieldset className="form__fildset">
+            <Clock />
             <header className="form__legend">
                 <h1 >Kantor</h1>
             </header>
-
             Wyliczenia kantora opierają się na kursie walut z dnia 01.08.2023
             <main className="main">
                 <section>
