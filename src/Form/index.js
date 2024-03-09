@@ -1,49 +1,44 @@
-import "./style.css"
 import Select from './Select';
 import Result from './Result';
 import Clock from "./Clock";
+import Fieldset from "./Fieldset";
+import Buttons from "./Buttons";
+import Label from "./Label";
+import { StyledForm, Header } from "./styled";
 
 const Form = ({ onFormSubmit, amount, setAmount, handleNationalSelect, handleForeignSelect, calculateResult, result }) => (
-    <form className="form" onSubmit={onFormSubmit}>
-        <fieldset className="form__fildset">
+    <StyledForm onSubmit={onFormSubmit}>
+        <Fieldset>
             <Clock />
-            <header className="form__legend">
+            <Header>
                 <h1 >Kantor</h1>
-            </header>
+            </Header>
             Wyliczenia kantora opierają się na kursie walut z dnia 01.08.2023
-            <main className="main">
+            <main >
                 <section>
-                    <label className="label">
-                        Wpisz kwotę:
-                        <input
-                            className="inputElement"
-                            value={amount}
-                            onChange={({ target }) => setAmount(target.value)}
-                            placeholder="(Tylko liczby)"
-                            required
-                            step="0.01"
-                            type="number"
-                        /> <br />
-                        Wybierz walutę:
-                    </label>
-
-                    <Select setCurrency={handleNationalSelect} />
+                    <Label
+                        amount={amount}
+                        setAmount={setAmount}
+                    />
+                    <Select
+                        setCurrency={handleNationalSelect}
+                    />
                     <br />Wybierz walutę na którą chcesz przewalutować:
-                    <Select setCurrency={handleForeignSelect} />
+                    <Select
+                        setCurrency={handleForeignSelect}
+                    />
                 </section>
             </main>
-
             <section>
-                <div>
-                    <button onClick={() => calculateResult(amount)} className="form__button">Przelicz</button>
-                    <button className="form__button" onClick={() => setAmount("")}>Wyczyść</button>
-                </div>
+                <Buttons
+                    amount={amount}
+                    setAmount={setAmount}
+                    calculateResult={calculateResult}
+                />
                 <Result result={result} />
             </section>
-
-
-        </fieldset >
-    </form>
+        </Fieldset>
+    </StyledForm>
 
 );
 export default Form;

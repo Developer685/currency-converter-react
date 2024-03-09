@@ -1,9 +1,9 @@
-import "./style.css";
+import { StyledFildset } from "./styled";
 
 const Fieldset = ({ children }) => (
-    <fieldset className="form__fildset">
+    <StyledFildset>
         {children}
-    </fieldset>
+    </StyledFildset>
 );
 
 export default Fieldset;

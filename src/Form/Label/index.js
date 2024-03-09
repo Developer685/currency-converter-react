@@ -1,18 +1,18 @@
-import "./style.css";
+import { Input } from "./styled";
 
 const Label = ({ amount, setAmount }) => (
 
-    <label className="label">
+    <label>
         Wpisz kwotę:
-        <input
-            className="inputElement"
+        <Input
             value={amount}
             onChange={({ target }) => setAmount(target.value)}
             placeholder="(Tylko liczby)"
             required
             step="0.01"
             type="number"
-        /> <br />
+        />
+        <br />
         Wybierz walutę:
 
     </label>

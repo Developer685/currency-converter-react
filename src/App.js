@@ -1,4 +1,3 @@
-import './App.css';
 import React, { useState } from 'react';
 import Form from './Form';
 
@@ -60,7 +59,8 @@ function App() {
 
    return (
       <div>
-         <Form onFormSubmit={onFormSubmit}
+         <Form
+            onFormSubmit={onFormSubmit}
             amount={amount}
             setAmount={setAmount}
             handleNationalSelect={handleNationalSelect}
