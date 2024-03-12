@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 export const StyledFildset = styled.fieldset`
-    border: ${({ theme }) => theme.color.silverChalice} 10px solid;
-    background-color: ${({ theme }) => theme.color.abbey} ;
-    border-radius: 38px;
+   
+    background-color: ${({ theme }) => theme.color.white};
+    border-radius: 15px;
+    border: solid white 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-height: 250px;
 `;

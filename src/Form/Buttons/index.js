@@ -1,15 +1,15 @@
-import { StyledButton } from "./styled";
+import { StyledButton, ButtonDiv } from "./styled";
 
 const Buttons = ({ amount, calculateResult, setAmount }) => (
-    <div>
+    <ButtonDiv>
         <StyledButton onClick={() => calculateResult(amount)}>
             Przelicz
         </StyledButton>
-        
+
         <StyledButton onClick={() => setAmount("")}>
             Wyczyść
         </StyledButton>
-    </div>
+    </ButtonDiv>
 
 );
 

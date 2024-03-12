@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledButton = styled.button`
-    background-color: ${({ theme }) => theme.color.forestGreen};
+    background-color: ${({ theme }) => theme.color.white};
     border: none;
     border-radius: 3px;
     padding: 8px;
@@ -16,4 +16,10 @@ export const StyledButton = styled.button`
     filter: brightness(110%);
     border: none;
 }
+`;
+
+export const ButtonDiv = styled.div`
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-gap: 30px;
 `;

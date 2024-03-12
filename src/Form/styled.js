@@ -6,12 +6,31 @@ export const StyledForm = styled.form`
 `;
 
 export const Header = styled.h1`
-    margin: auto;
-    text-align: center;
-    background-color: hsl(133, 62%, 45%);
-    border: 1px solid;
-    border-radius: 20px;
-    font-size: large;
-    width: 100%;
-    max-width: 200px;
+    padding-left: 5%;
+    text-align: left;
+    color: ${({ theme }) => theme.color.white};
+    background: ${({ theme }) => theme.color.lochmara};
+    background: linear-gradient(90deg, rgba(2,120,189,1) 0%, rgba(2,198,239,1) 100%);
+    font-size: x-large;
+    width: all;
+
+`;
+
+export const HeaderDiv = styled.div`
+    font-size: small;
+`;
+
+export const Section = styled.section`
+    background: ${({ theme }) => theme.color.lochmara};
+    background: linear-gradient(90deg, rgba(2,120,189,1) 0%, rgba(2,198,239,1) 100%);
+    font-size: xx-large;
+    color: white;
+    margin: 1%;
+    border-radius: 15px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
 `;

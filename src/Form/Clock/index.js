@@ -3,7 +3,16 @@ import { StyledClock } from "./styled";
 
 const Clock = () => {
 
-    const actualDate = useCurrentDate();
+    const date = useCurrentDate();
+
+    const actualDate = date.toLocaleString(undefined, {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+    })
 
     return (
         <StyledClock>

@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 
 export const StyledClock = styled.div`
-    display: flex;
-    justify-content: right;
+    justify-self: start;
     font-size: large;
     font-family: monospace;
 `;

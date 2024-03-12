@@ -7,7 +7,16 @@ export const Input = styled.input`
     padding: 4px 10px;
     padding: center;
     width: 100%;
-    max-width: 15%;
-    font-size: x-large;
+    max-width: 90%;
+    font-size: xx-large;
     margin: 1%;
 `;
+
+export const LabelDiv = styled.div`
+    font-size: xx-large;
+    text-align: center;
+    margin-bottom: 0%;
+    padding-bottom: 20px;
+    align-self: center;
+`;
+

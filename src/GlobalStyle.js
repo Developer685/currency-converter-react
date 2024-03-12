@@ -18,7 +18,7 @@ body {
   background-image: url("${background}");
   background-size: cover;
   margin: auto;
-  font-size: xx-large;
+  font-size: large;
   max-width: 1500px;
   color: black;
 }
