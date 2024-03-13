@@ -4,7 +4,7 @@
 
 ## Quick look
 
-![Quick look](https://github.com/Developer685/currency-converter-react/blob/main/src/Zrzut%20ekranu%202024-02-27%20230949.png?raw=true)
+![Quick look](https://github.com/Developer685/currency-converter-react/blob/main/src/demo.jpg?raw=true)
 
 
 ### Desctiption
