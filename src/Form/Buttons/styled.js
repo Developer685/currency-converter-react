@@ -21,5 +21,6 @@ export const StyledButton = styled.button`
 export const ButtonDiv = styled.div`
 display: grid;
 grid-template-columns: 1fr 1fr;
-grid-gap: 30px;
+grid-gap: 10px;
+padding: 2%;
 `;

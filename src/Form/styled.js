@@ -6,6 +6,7 @@ export const StyledForm = styled.form`
 `;
 
 export const Header = styled.h1`
+
     padding-left: 5%;
     text-align: left;
     color: ${({ theme }) => theme.color.white};
@@ -18,6 +19,7 @@ export const Header = styled.h1`
 
 export const HeaderDiv = styled.div`
     font-size: small;
+    padding: 3px;
 `;
 
 export const Section = styled.section`
@@ -28,9 +30,10 @@ export const Section = styled.section`
     margin: 1%;
     border-radius: 15px;
     min-height: 250px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
     justify-content: center;
-    row-gap: 10px;
+    padding: 10%;
+    row-gap: 5px;
+    
 `;

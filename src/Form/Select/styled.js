@@ -6,5 +6,6 @@ export const StyledSelect = styled.select`
     border-radius: 3px;
     padding: 8px;
     font-size: large;
-    margin-bottom: -4%;
+    align-self: baseline;
+    
 `;
