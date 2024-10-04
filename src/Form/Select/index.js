@@ -1,13 +1,16 @@
-import { StyledSelect} from "./styled";
+import { StyledSelect } from "./styled";
 
-const Select = ({ setCurrency }) => (
+const Select = ({ currency, ratesData }) => (
 
-    <StyledSelect onChange={({ target }) => setCurrency(target.value)}>
-        <option  code="EUR">EUR</option>
-        <option  code="PLN">PLN</option>
-        <option  code="USD">USD</option>
-        <option  code="GBP">GBP</option>
-        <option  code="CHF">CHF</option>
+    <StyledSelect onChange={({ target }) => currency(target.value)}>
+        {Object.keys(ratesData.currencies).map(((currency) => (
+            <option
+                key={currency}
+                value={currency}
+            >
+                {currency}
+            </option>
+        )))}
     </StyledSelect>
 
 );

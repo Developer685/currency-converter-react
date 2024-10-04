@@ -4,55 +4,93 @@ import Clock from "./Clock";
 import Fieldset from "./Fieldset";
 import Buttons from "./Buttons";
 import Label from "./Label";
-import { StyledForm, Header, HeaderDiv, Section } from "./styled";
+import { StyledForm, Section, Header, HeaderDiv, Feilure, Loading } from "./styled";
+import React, { useState } from 'react';
 
-const Form = ({ onFormSubmit, amount, setAmount, handleNationalSelect, handleForeignSelect, calculateResult, result }) => (
+import { useRatesData } from './useRatesData';
 
-    <StyledForm onSubmit={onFormSubmit}>
+const Form = () => {
 
-        <Header>
-            <h1 >   Kantor<br />
-                <HeaderDiv> WYMIANA WALUT ONLINE
+  const [result, setResult] = useState("");
+  const [amount, setAmount] = useState("");
+  const ratesData = useRatesData();
 
-                </HeaderDiv>
-            </h1>
-        </Header>
+  const calculateResult = (amount, currency) => {
+    const rate = ratesData.currencies[currency];
 
-        <Fieldset>
+    setResult({
+      sourceAmount: +amount,
+      targetAmount: amount * rate,
+      currency,
+    }).toFixed(2);
+  };
 
-            <Section>
-                <Label
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    calculateResult(amount);
+  };
+
+  return (
+    <div>
+      <Header>
+        <h1 > Kantor <br />
+          <HeaderDiv>
+            WYMIANA WALUT ONLINE
+          </HeaderDiv>
+        </h1>
+      </Header>
+
+      <StyledForm onSubmit={onFormSubmit}>
+        {ratesData.state === "loading"
+          ? (
+            <Loading>
+              Sekunda... <br />Ładuję kursy walut z Europejskiego Banku Centralnego
+            </Loading>
+          )
+          :
+          ratesData.state === "error" ? (
+            <Feilure>
+              Hmm... Coś poszło nie tak. Sprawdź, czy masz połączenie internetowe
+            </Feilure>
+          )
+            : (
+
+
+              <Fieldset>
+
+                <Section>
+                  <Label
                     amount={amount}
                     setAmount={setAmount}
-                />
+                  />
+                </Section>
 
-            </Section>
+                <Section>
+                  Wybierz walutę ojczystą<br />
+                  <Select />
+                  <br />
+                  Wybierz walutę obcą
+                  <br />
+                  <Select />
+                </Section>
 
-            <Section>
-                Wybierz walutę ojczystą<br />
-                <Select
-                    setCurrency={handleForeignSelect}
-                />
-                <br />
-                Wybierz walutę obcą
-                <br />
-                <Select
-                    setCurrency={handleNationalSelect}
-                />
-            </Section>
-
-            <Section>
-                <Clock />
-                <Buttons
+                <Section>
+                  <Clock />
+                  <Buttons
                     amount={amount}
                     setAmount={setAmount}
                     calculateResult={calculateResult}
-                />
-                <Result result={result} />
-            </Section>
+                  />
+                  <Result result={result} />
+                </Section>
 
-        </Fieldset>
-    </StyledForm>
+              </Fieldset>
+            )
+        }
+      </StyledForm>
 
-);
+    </div>
+
+  );
+};
 export default Form;

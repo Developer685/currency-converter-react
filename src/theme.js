@@ -1,10 +1,12 @@
 export const theme = {
     color: {
         white: "#ffffff",
-        lochmara: "#0278bd",
-        forestGreen: "#2cba4a",
         silverChalice: "#acaaaa",
+        lochmara: "#0278bd",
+        teal: "#008080",
+        crimson: "#db143c",
         abbey: "#cfc9c9fa",
+        gunPowder: "#42445a",
         black: "#000000",
     }
 };

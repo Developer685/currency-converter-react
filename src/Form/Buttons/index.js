@@ -12,5 +12,4 @@ const Buttons = ({ amount, calculateResult, setAmount }) => (
     </ButtonDiv>
 
 );
-
 export default Buttons;

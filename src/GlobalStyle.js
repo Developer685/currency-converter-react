@@ -14,12 +14,11 @@ html {
 body {
   display: grid;
   align-self: center;
-  font-family: "Lato", sans-serif;
+  font-family: "Franklin Gothic Medium", sans-serif;
   background-image: url("${background}");
   background-size: cover;
   margin: auto;
   font-size: large;
-  max-width: 1500px;
   color: black;
 }
 

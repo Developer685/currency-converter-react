@@ -1,3 +1,4 @@
+
 const Result = ({ result }) => (
 
     <div>
