@@ -16,7 +16,7 @@ const Form = () => {
   const ratesData = useRatesData();
 
   const calculateResult = (amount, currency) => {
-    const rate = ratesData.currencies[currency];
+    const rate = ratesData.value[currency];
 
     setResult({
       sourceAmount: +amount,
@@ -67,11 +67,11 @@ const Form = () => {
 
                 <Section>
                   Wybierz walutę ojczystą<br />
-                  <Select />
+                  <Select/>
                   <br />
                   Wybierz walutę obcą
                   <br />
-                  <Select />
+                  <Select/>
                 </Section>
 
                 <Section>

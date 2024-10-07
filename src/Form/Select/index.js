@@ -3,7 +3,7 @@ import { StyledSelect } from "./styled";
 const Select = ({ currency, ratesData }) => (
 
     <StyledSelect onChange={({ target }) => currency(target.value)}>
-        {Object.keys(ratesData.currencies).map(((currency) => (
+        {Object.keys(ratesData.value).map(((currency) => (
             <option
                 key={currency}
                 value={currency}
