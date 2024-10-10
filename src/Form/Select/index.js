@@ -2,11 +2,11 @@ import { StyledSelect } from "./styled";
 
 const Select = ({ currency, ratesData }) => (
 
-    <StyledSelect onChange={({ target }) => currency(target.value)}>
-        {Object.keys(ratesData.value).map(((currency) => (
+    <StyledSelect >
+        {Object.keys(ratesData.data).map(((currency) => (
             <option
-                key={currency}
-                value={currency}
+                key={ratesData.data.code}
+                value={ratesData.data.value}
             >
                 {currency}
             </option>

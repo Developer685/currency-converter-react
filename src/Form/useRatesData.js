@@ -9,17 +9,17 @@ export const useRatesData = () => {
   useEffect(() => {
     const fetchRates = async () => {
       try {
-        const response = await fetch("https://api.currencyapi.com/v3/latest?apikey=cur_live_RnlhxOI7cFnvy5BBJ5nUPg6qwIYZqSL0UJ08aXE7");
+        const response = await fetch("https://apii.currencyapi.com/v3/latest?apikey=cur_live_RnlhxOI7cFnvy5BBJ5nUPg6qwIYZqSL0UJ08aXE7");
 
         if (!response.ok) {
           throw new Error(response.statusText);
         }
-        const { value, code } = await response.json();
+        const { meta, data } = await response.json();
 
         setRatesData({
           state: "succes",
-          code,
-          value,
+          meta,
+          data,
         });
       }
 

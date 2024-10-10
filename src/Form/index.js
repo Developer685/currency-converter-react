@@ -15,14 +15,12 @@ const Form = () => {
   const [amount, setAmount] = useState("");
   const ratesData = useRatesData();
 
-  const calculateResult = (amount, currency) => {
-    const rate = ratesData.value[currency];
+  const calculateResult = (amount) => {
 
-    setResult({
-      sourceAmount: +amount,
-      targetAmount: amount * rate,
-      currency,
-    }).toFixed(2);
+    const rate = ratesData.value;
+    setResult((amount));
+    console.log(rate);
+    //.toFixed(2);// set space after comma
   };
 
   const onFormSubmit = (event) => {
@@ -67,11 +65,11 @@ const Form = () => {
 
                 <Section>
                   Wybierz walutę ojczystą<br />
-                  <Select/>
+                  <Select ratesData={ratesData} code={ratesData.code} />
                   <br />
                   Wybierz walutę obcą
                   <br />
-                  <Select/>
+                  <Select ratesData={ratesData} code={ratesData.code} />
                 </Section>
 
                 <Section>
