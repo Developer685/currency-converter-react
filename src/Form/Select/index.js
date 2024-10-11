@@ -1,8 +1,8 @@
 import { StyledSelect } from "./styled";
 
-const Select = ({ currency, ratesData }) => (
+const Select = ({ ratesData }) => (
 
-    <StyledSelect >
+    <StyledSelect>
         {Object.keys(ratesData.data).map(((currency) => (
             <option
                 key={ratesData.data.code}

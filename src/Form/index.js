@@ -14,18 +14,30 @@ const Form = () => {
   const [result, setResult] = useState("");
   const [amount, setAmount] = useState("");
   const ratesData = useRatesData();
+  const [selectedNational, setSelectedNational] = useState(ratesData.data);
+  const [selectedForeign, setSelectedForeign] = useState(ratesData.data);
 
-  const calculateResult = (amount) => {
 
-    const rate = ratesData.value;
-    setResult((amount));
-    console.log(rate);
+  const handleNationalSelect = (currency) => {
+    const selectedNational = ratesData.data.find(({ code }) => code === currency.code)?.value; //for some reason doesn`t work without "?"
+    setSelectedNational(selectedNational);
+  };
+
+  const handleForeignSelect = (currency) => {
+    const selectedForeign = ratesData.find(({ code }) => code === currency)?.value;
+    setSelectedForeign(selectedForeign);
+  };
+
+  const calculateResult = (amount, selectedNational, selectedForeign, currency) => {
+    setResult((amount * selectedNational) / selectedForeign);
+    console.log(selectedNational);
+
     //.toFixed(2);// set space after comma
   };
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    calculateResult(amount);
+    calculateResult(amount, selectedNational, selectedForeign);
   };
 
   return (
@@ -65,11 +77,11 @@ const Form = () => {
 
                 <Section>
                   Wybierz walutę ojczystą<br />
-                  <Select ratesData={ratesData} code={ratesData.code} />
+                  <Select ratesData={ratesData} setCurrency={handleNationalSelect} />
                   <br />
                   Wybierz walutę obcą
                   <br />
-                  <Select ratesData={ratesData} code={ratesData.code} />
+                  <Select ratesData={ratesData} setCurrency={handleForeignSelect} />
                 </Section>
 
                 <Section>
