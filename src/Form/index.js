@@ -13,26 +13,23 @@ const Form = () => {
 
   const [result, setResult] = useState("");
   const [amount, setAmount] = useState("");
+  const [currency, setCurrency] = useState("");
   const ratesData = useRatesData();
-  const [selectedNational, setSelectedNational] = useState(ratesData.data);
-  const [selectedForeign, setSelectedForeign] = useState(ratesData.data);
+  const [selectedNational, setSelectedNational] = useState("EUR");
+  const [selectedForeign, setSelectedForeign] = useState("EUR");
 
+  const calculateResult = (amount, selectedNational, selectedForeign) => {
 
-  const handleNationalSelect = (currency) => {
-    const selectedNational = ratesData.data.find(({ code }) => code === currency.code)?.value; //for some reason doesn`t work without "?"
-    setSelectedNational(selectedNational);
-  };
+    const selectedNationalRate = selectedNational?.data?.find(({ code }) => code === currency.code)?.value; //for some reason doesn`t work without "?"
+    const selectedForeignRate = selectedForeign?.data?.find(({ code }) => code === currency).code?.value;
 
-  const handleForeignSelect = (currency) => {
-    const selectedForeign = ratesData.find(({ code }) => code === currency)?.value;
-    setSelectedForeign(selectedForeign);
-  };
-
-  const calculateResult = (amount, selectedNational, selectedForeign, currency) => {
-    setResult((amount * selectedNational) / selectedForeign);
+    setResult((amount * selectedNationalRate) / selectedForeignRate);
     console.log(selectedNational);
+    console.log(selectedForeign);
+    console.log(result);
+    console.log(currency);
 
-    //.toFixed(2);// set space after comma
+    //.toFixed(some number);// set space after comma
   };
 
   const onFormSubmit = (event) => {
@@ -77,11 +74,19 @@ const Form = () => {
 
                 <Section>
                   Wybierz walutę ojczystą<br />
-                  <Select ratesData={ratesData} setCurrency={handleNationalSelect} />
+                  <Select
+                    ratesData={ratesData}
+                    currency={selectedNational}
+                    setCurrency={setSelectedNational}
+                  />
                   <br />
                   Wybierz walutę obcą
                   <br />
-                  <Select ratesData={ratesData} setCurrency={handleForeignSelect} />
+                  <Select
+                    ratesData={ratesData}
+                    currency={selectedForeign}
+                    setCurrency={setSelectedForeign}
+                  />
                 </Section>
 
                 <Section>
