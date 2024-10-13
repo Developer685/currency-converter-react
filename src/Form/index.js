@@ -11,25 +11,19 @@ import { useRatesData } from './useRatesData';
 
 const Form = () => {
 
-  const [result, setResult] = useState("");
-  const [amount, setAmount] = useState("");
-  const [currency, setCurrency] = useState("");
   const ratesData = useRatesData();
+
   const [selectedNational, setSelectedNational] = useState("EUR");
   const [selectedForeign, setSelectedForeign] = useState("EUR");
+  const [result, setResult] = useState("");
+  const [amount, setAmount] = useState("");
 
   const calculateResult = (amount, selectedNational, selectedForeign) => {
 
-    const selectedNationalRate = selectedNational?.data?.find(({ code }) => code === currency.code)?.value; //for some reason doesn`t work without "?"
-    const selectedForeignRate = selectedForeign?.data?.find(({ code }) => code === currency).code?.value;
+    const selectedNationalRate = ratesData.data[selectedNational]?.value //for some reason doesn`t work without "?"
+    const selectedForeignRate = ratesData.data[selectedForeign]?.value
 
-    setResult((amount * selectedNationalRate) / selectedForeignRate);
-    console.log(selectedNational);
-    console.log(selectedForeign);
-    console.log(result);
-    console.log(currency);
-
-    //.toFixed(some number);// set space after comma
+    setResult(((amount * selectedForeignRate) / selectedNationalRate).toFixed(2)); // set space after comma
   };
 
   const onFormSubmit = (event) => {
